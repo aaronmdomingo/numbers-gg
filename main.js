@@ -16,8 +16,8 @@ function pick_number() {
 }
 
 function make_guess() {
-  var the_guess = parseInt($('input').val());
-  var the_response = $('.response_div');
+  var the_guess = parseInt($('#guess_input').val());
+  var the_response = $('#response_div');
 
 
   if (the_guess > the_number) {
