@@ -20,38 +20,48 @@
                     <button class="btn checker__reset" id="resetBtn">Reset</but>
                 </div>
                 <div class="checker__Display">
-                    <div class="checker__Display-box" id="randomNumber1">0</div>
-                    <div class="checker__Display-box" id="randomNumber2">0</div>
-                    <div class="checker__Display-box" id="randomNumber3">0</div>
-                    <div class="checker__Display-box" id="randomNumber4">0</div>
+                    <div class="checker__Display-box" >
+                        <span class="randomNumber" id="randomNumber1">0</span>
+                    </div>
+                    <div class="checker__Display-box">
+                        <span class="randomNumber" id="randomNumber2">0</span>
+                    </div>
+                    <div class="checker__Display-box">
+                        <span class="randomNumber" id="randomNumber3">0</span>
+                    </div>
+                    <div class="checker__Display-box">
+                        <span class="randomNumber" id="randomNumber4">0</span>
+                    </div>
                 </div>
                 <div class="checker__Start">
                     <button class="btn checker__start" id="startBtn">Start</button>
                 </div>
             </section>
             <section class="row status">
-                <div class="status__Display" id="statusResult">Status</div>
+                <div class="status__Display" >
+                    <span id="statusResult">Status</span>
+                </div>
             </section>
             <section class="row guess">
                 <div class="guess__Display">
                     <div class="guess__Display-Container">
                         <ion-icon name="arrow-dropup" class="arrow arrowUp-1"></ion-icon>
-                        <input type="text" class="guess__Display-box" id="guessBox-1" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <input type="text" class="guess__Display-box" id="guessBox-1" placeholder="0" maxlength="1" autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
                         <ion-icon name="arrow-dropdown" class="arrow arrowDown-1"></ion-icon>
                     </div>
                     <div class="guess__Display-Container">
                         <ion-icon name="arrow-dropup" class="arrow arrowUp-2"></ion-icon>
-                        <input type="text" class="guess__Display-box" id="guessBox-2" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <input type="text" class="guess__Display-box" id="guessBox-2" placeholder="0" maxlength="1" autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
                         <ion-icon name="arrow-dropdown" class="arrow arrowDown-2"></ion-icon>
                     </div>
                     <div class="guess__Display-Container">
                         <ion-icon name="arrow-dropup" class="arrow arrowUp-3"></ion-icon>
-                        <input type="text" class="guess__Display-box" id="guessBox-3" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <input type="text" class="guess__Display-box" id="guessBox-3" placeholder="0" maxlength="1" autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
                         <ion-icon name="arrow-dropdown" class="arrow arrowDown-3"></ion-icon>
                     </div>
                     <div class="guess__Display-Container">
                         <ion-icon name="arrow-dropup" class="arrow arrowUp-4"></ion-icon>
-                        <input type="text" class="guess__Display-box" id="guessBox-4" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <input type="text" class="guess__Display-box" id="guessBox-4" placeholder="0" maxlength="1" autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
                         <ion-icon name="arrow-dropdown" class="arrow arrowDown-4"></ion-icon>
                     </div>
                 </div>
@@ -68,9 +78,6 @@
 
 
     </div>
-    <input type="text" id="guess_input" placeholder="Guess here!">
-    <div id="response_div">Response</div>
-    <button class="btn__guess">Guess!</button>
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     <script src="main.js"></script>
     <!--this is linking your js file to you HTML, note it is loaded after jQuery so that jQuery is available to your js file-->
