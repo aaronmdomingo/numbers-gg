@@ -4,13 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script> <!-- note that jQuery must be imported to use jQuery in your project.-->
-    <script src="main.js"></script>  <!--this is linking your js file to you HTML, note it is loaded after jQuery so that jQuery is available to your js file-->
-    <title>Guessing Game</title>
+    <title>Numbers GG</title>
 </head>
 <body>
+    <div class="main">
+        <div class="main__Container">
+            <section class="row timer">
+                <div class="timer__box" id="timerCount">TIMER</div>
+            </section>
+            <section class="row checker">
+                <div class="checker__Reset">
+                    <button class="btn checker__reset" id="resetBtn">Reset</but>
+                </div>
+                <div class="checker__Display">
+                    <div class="checker__Display-box" id="randomNumber1">0</div>
+                    <div class="checker__Display-box" id="randomNumber2">0</div>
+                    <div class="checker__Display-box" id="randomNumber3">0</div>
+                    <div class="checker__Display-box" id="randomNumber4">0</div>
+                </div>
+                <div class="checker__Start">
+                    <button class="btn checker__start" id="startBtn">Start</button>
+                </div>
+            </section>
+            <section class="row status">
+                <div class="status__Display" id="statusResult">Status</div>
+            </section>
+            <section class="row guess">
+                <div class="guess__Display">
+                    <div class="guess__Display-Container">
+                        <ion-icon name="arrow-dropup" class="arrow arrowUp-1"></ion-icon>
+                        <input type="text" class="guess__Display-box" id="guessBox-1" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <ion-icon name="arrow-dropdown" class="arrow arrowDown-1"></ion-icon>
+                    </div>
+                    <div class="guess__Display-Container">
+                        <ion-icon name="arrow-dropup" class="arrow arrowUp-2"></ion-icon>
+                        <input type="text" class="guess__Display-box" id="guessBox-2" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <ion-icon name="arrow-dropdown" class="arrow arrowDown-2"></ion-icon>
+                    </div>
+                    <div class="guess__Display-Container">
+                        <ion-icon name="arrow-dropup" class="arrow arrowUp-3"></ion-icon>
+                        <input type="text" class="guess__Display-box" id="guessBox-3" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <ion-icon name="arrow-dropdown" class="arrow arrowDown-3"></ion-icon>
+                    </div>
+                    <div class="guess__Display-Container">
+                        <ion-icon name="arrow-dropup" class="arrow arrowUp-4"></ion-icon>
+                        <input type="text" class="guess__Display-box" id="guessBox-4" placeholder="0" maxlength="1" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        <ion-icon name="arrow-dropdown" class="arrow arrowDown-4"></ion-icon>
+                    </div>
+                </div>
+            </section>
+            <section class="row submit">
+                <button class="btn btn-submit" id='checkBtn'>check</button>
+            </section>
+            <section class="row footer">
+                <div class="footer__text">Aaron Domingo 2019</div>
+            </section>
+
+
+        </div>
+
+
+    </div>
     <input type="text" id="guess_input" placeholder="Guess here!">
     <div id="response_div">Response</div>
     <button class="btn__guess">Guess!</button>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="main.js"></script>
+    <!--this is linking your js file to you HTML, note it is loaded after jQuery so that jQuery is available to your js file-->
 </body>
 </html>
