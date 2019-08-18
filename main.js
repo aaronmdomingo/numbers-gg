@@ -40,48 +40,61 @@ function init() {
   randomNumber3.text('0');
   randomNumber4.text('0');
 
-  statusResult.text('status')
+  disableKeys();
+
   randomArray = [];
   guessArray = [];
+
+  statusResult.removeClass('indicatorScroll');
+  setTimeout(function() {
+    statusResult.addClass('indicatorScroll');
+    statusResult.text('Hello! Click the Start Button to begin :)');
+  }, 1)
+
   guessDisplayBox.removeClass('indicatorBorder');
   guessDisplayBox.removeAttr('disabled');
   randomNumberAll.removeClass('indicatorPulse');
   main.removeClass('indicatorBreathe');
   startBtn.removeAttr('disabled');
+  startBtn.addClass('indicatorColorPulse');
   checkBtn.removeAttr('disabled');
-  statusResult.text('Hello! Click the Start Button to begin :)')
   clearInterval(timeCount);
   countDownTime.text('TIMER');
+  countDownTime.removeClass('indicatorColor');
 }
 
 function initializeApp () {
-  statusResult.finish();
-  statusResult.text('Guess the numbers from below. You got it!')
+
+  enableKeys();
+
   randomArray = pick_number();
   randomNumber1.text('?').addClass('indicatorPulse');
   randomNumber2.text('?').addClass('indicatorPulse');
   randomNumber3.text('?').addClass('indicatorPulse');
   randomNumber4.text('?').addClass('indicatorPulse');
+  startBtn.removeClass('indicatorColorPulse');
 
-//Create a timer
-  timer(60);
-
-
-  $(document).on('keydown', function(event) {
-    var keycode = event.keyCode;
-    if (keycode == '13') {
-      make_guess();
-      playSoundWav('btnSound');
-    }
+  statusResult.removeClass('indicatorScroll');
+  setTimeout(function() {
+    statusResult.addClass('indicatorScroll');
+    statusResult.text('Guess the numbers from below, you got this!')
   })
+  //Timer that can be changed
+  timer(30);
+
+  // $(document).on('keydown', function(event) {
+  //   var keycode = event.keyCode;
+  //   if (keycode == 13) {
+  //     make_guess();
+  //     playSoundWav('btnSound');
+  //   }
+  // })
 
 //CHECK GAME
   startBtn.attr('disabled', 'true');
   checkBtn.click(make_guess);
-  resetBtn.click(init)
+  resetBtn.click(init);
 }
-
-
 
 function pick_number() {
   var randomNumber = null;
@@ -93,10 +106,10 @@ function pick_number() {
 }
 
 function make_guess() {
-  var val1 = parseInt($('#guessBox-1').val());
-  var val2 = parseInt($('#guessBox-2').val());
-  var val3 = parseInt($('#guessBox-3').val());
-  var val4 = parseInt($('#guessBox-4').val());
+  var val1 = parseInt(guessNumber1.val());
+  var val2 = parseInt(guessNumber2.val());
+  var val3 = parseInt(guessNumber3.val());
+  var val4 = parseInt(guessNumber4.val());
   var guessString;
   var randomString;
   guessArray = [val1, val2, val3, val4];
@@ -127,15 +140,24 @@ function make_guess() {
       }, 1000)
     }
   }
+
   guessString = guessArray.join('');
   randomString = randomArray.join('');
   if (guessString === randomString) {
-    statusResult.text('You Won! Press reset to play again');
+
+    statusResult.removeClass('indicatorScroll');
+    setTimeout(function () {
+      statusResult.addClass('indicatorScroll');
+      statusResult.text('You Won! Press reset to play again');
+    }, 1)
+
     clearInterval(timeCount);
     countDownTime.text('NICE!')
+    checkBtn.attr('disabled', 'true');
     main.addClass('indicatorBreathe');
     playSoundMp3('victory');
-    //DO CODE WHEN WON
+    countDownTime.removeClass('indicatorColor');
+    disableKeys();
   }
 
 }
@@ -146,15 +168,24 @@ function timer(time) {
   timeCount = setInterval(function() {
     countDownTime.text(countDown);
     countDown -=1
+    if (countDown < 10) {
+      countDownTime.addClass('indicatorColor');
+    }
+
     if (countDown < 0) {
       clearInterval(timeCount);
       countDownTime.text('TIMES UP!');
       $('.guess__Display-box').attr('disabled', 'true');
       checkBtn.attr('disabled', 'true');
       playSoundMp3('wrong');
-      statusResult.text('You lost! Click reset to try again!')
-      main.addClass('gameOver');
 
+      statusResult.removeClass('indicatorScroll');
+      setTimeout(function () {
+        statusResult.addClass('indicatorScroll');
+        statusResult.text('You lost! Click reset to try again!');
+      }, 1)
+
+      main.addClass('gameOver');
       setTimeout(function() {
         main.removeClass('gameOver');
       }, 200)
@@ -170,4 +201,19 @@ function playSoundWav(name) {
 function playSoundMp3(name) {
   var audio = new Audio(`sounds/${name}.mp3`);
   audio.play();
+}
+
+function disableKeys() {
+  document.onkeydown = function (e) {
+    return false;
+  }
+}
+function enableKeys() {
+  document.onkeydown = function (e) {
+    var keycode = e.keyCode;
+    if (keycode == 13) {
+      make_guess();
+      playSoundWav('btnSound');
+    }
+  }
 }
