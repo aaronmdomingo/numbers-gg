@@ -79,10 +79,7 @@ function initializeApp () {
   enableKeys();
 
   randomArray = pick_number();
-  randomNumber1.text('?').addClass('indicatorPulse');
-  randomNumber2.text('?').addClass('indicatorPulse');
-  randomNumber3.text('?').addClass('indicatorPulse');
-  randomNumber4.text('?').addClass('indicatorPulse');
+  randomNumberAll.text('?').addClass('indicatorPulse');
   startBtn.removeClass('indicatorColorPulse');
 
   statusResult.removeClass('indicatorScroll');
@@ -90,6 +87,7 @@ function initializeApp () {
     statusResult.addClass('indicatorScroll');
     statusResult.text('Guess the numbers from below, you got this!')
   }, 10)
+
   //Timer that can be changed
   if (easy.hasClass('active')) {
     timer(30);
