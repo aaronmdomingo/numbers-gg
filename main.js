@@ -49,6 +49,7 @@ function init() {
   guessArray = [];
 
   disableKeys();
+
   easy.addClass('active');
   normal.removeClass('active');
   hard.removeClass('active');
@@ -214,6 +215,7 @@ function disableKeys() {
     return false;
   }
 }
+
 function enableKeys() {
   document.onkeydown = function (e) {
     var keycode = e.keyCode;
