@@ -48,14 +48,12 @@ function init() {
   randomArray = [];
   guessArray = [];
 
-
   disableKeys();
   easy.addClass('active');
   normal.removeClass('active');
   hard.removeClass('active');
 
   levelBtn.click(checkDifficulty);
-
 
   statusResult.removeClass('indicatorScroll');
   setTimeout(function() {
@@ -224,10 +222,6 @@ function enableKeys() {
       playSoundWav('btnSound');
     }
   }
-}
-
-function active() {
-  $(this).addClass('active');
 }
 
 function checkDifficulty() {
