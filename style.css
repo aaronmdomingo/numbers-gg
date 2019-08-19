@@ -27,47 +27,17 @@ body {
   background: linear-gradient(to bottom, #c5f0a4, #226b80)
 }
 
-.title {
-  height: 5%;
-  width: 70rem;
-  margin-top: auto;
-
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.title__Container {
-  width: 40%;
-  height: 100%;
-
-
-  display: flex;
-}
-
-.title__Box {
-  font-size: 2.5rem;
-  border: 5px solid #000000;
-  border-radius: 5px;
-
-
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.title__Difficulty {
-  width: 60%;
-}
-
 .main__Container {
-  height: 90%;
+  height: 95%;
   width: 70rem;
   margin: auto;
   background-color: #35b0ab;
   border-radius: 5px;
   border: 5px solid #226b80;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .row {
@@ -79,6 +49,54 @@ body {
 .row.submit {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.row.title {
+  height: 15%;
+  display: flex;
+}
+
+.title__Container {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title__Logo {
+  font-size: 2.5rem;
+  height: 80%;
+  width: 90%;
+
+  background-color: #000000;
+  border: 5px solid #226b80;
+  border-radius: 5px;
+  color: #fff;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title__GG {
+  font-size: 4rem;
+  color: #f34573;
+}
+
+.title__Difficulty {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Difficulty-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -220,7 +238,8 @@ body {
 .row.footer {
   display: flex;
   justify-content: center;
-  align-items: flex-end
+  align-items: flex-end;
+  height: 5%;
 }
 
 .footer__text {
@@ -264,6 +283,10 @@ body {
   background-color: #d33d65;
 }
 
+.active {
+  background-color: rgb(177, 0, 47);
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -300,14 +323,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 @keyframes colorPulse {
   0% {
-    background-color: #f34573
+    background-color: #f34573;
 
   }
   50% {
-    background-color: rgb(177, 0, 47)
+    background-color: rgb(177, 0, 47);
   }
   100% {
-    background-color: #f34573
+    background-color: #f34573;
   }
 }
 

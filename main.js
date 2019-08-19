@@ -1,6 +1,8 @@
 $(document).ready(init); // This line is defining a function that will run once the HTML document loads.
 $('#startBtn').click(initializeApp);
 
+var main = $('.main');
+
 var randomArray = [];
 var randomNumberAll = $('.randomNumber');
 var randomNumber1 = $('#randomNumber1');
@@ -22,8 +24,11 @@ var timeCount;
 var startBtn = $('#startBtn');
 var checkBtn = $('#checkBtn');
 var resetBtn = $('#resetBtn');
+var levelBtn = $('.btn.level');
 
-var main = $('.main');
+var easy = $('#levelEasy');
+var normal = $('#levelNormal');
+var hard = $('#levelHard');
 
 $('.btn').click(function() {
   playSoundWav('btnSound');
@@ -40,16 +45,23 @@ function init() {
   randomNumber3.text('0');
   randomNumber4.text('0');
 
-  disableKeys();
-
   randomArray = [];
   guessArray = [];
+
+
+  disableKeys();
+  easy.addClass('active');
+  normal.removeClass('active');
+  hard.removeClass('active');
+
+  levelBtn.click(checkDifficulty);
+
 
   statusResult.removeClass('indicatorScroll');
   setTimeout(function() {
     statusResult.addClass('indicatorScroll');
     statusResult.text('Hello! Click the Start Button to begin :)');
-  }, 1)
+  }, 10)
 
   guessDisplayBox.removeClass('indicatorBorder');
   guessDisplayBox.removeAttr('disabled');
@@ -78,17 +90,15 @@ function initializeApp () {
   setTimeout(function() {
     statusResult.addClass('indicatorScroll');
     statusResult.text('Guess the numbers from below, you got this!')
-  })
+  }, 10)
   //Timer that can be changed
-  timer(30);
-
-  // $(document).on('keydown', function(event) {
-  //   var keycode = event.keyCode;
-  //   if (keycode == 13) {
-  //     make_guess();
-  //     playSoundWav('btnSound');
-  //   }
-  // })
+  if (easy.hasClass('active')) {
+    timer(30);
+  } else if (normal.hasClass('active')) {
+    timer(20);
+  } else if (hard.hasClass('active')) {
+    timer(10);
+  }
 
 //CHECK GAME
   startBtn.attr('disabled', 'true');
@@ -113,9 +123,6 @@ function make_guess() {
   var guessString;
   var randomString;
   guessArray = [val1, val2, val3, val4];
-
-  console.log('random array:' , randomArray);
-  console.log('guess array: ', guessArray);
 
   for (var j = 0; j < guessArray.length; j++) {
     if (guessArray[j] === randomArray[j]) {
@@ -174,6 +181,7 @@ function timer(time) {
 
     if (countDown < 0) {
       clearInterval(timeCount);
+      disableKeys();
       countDownTime.text('TIMES UP!');
       $('.guess__Display-box').attr('disabled', 'true');
       checkBtn.attr('disabled', 'true');
@@ -183,7 +191,7 @@ function timer(time) {
       setTimeout(function () {
         statusResult.addClass('indicatorScroll');
         statusResult.text('You lost! Click reset to try again!');
-      }, 1)
+      }, 10)
 
       main.addClass('gameOver');
       setTimeout(function() {
@@ -215,5 +223,25 @@ function enableKeys() {
       make_guess();
       playSoundWav('btnSound');
     }
+  }
+}
+
+function active() {
+  $(this).addClass('active');
+}
+
+function checkDifficulty() {
+  var levelID = this.id;
+  $(this).addClass('active');
+
+  if (levelID === 'levelEasy') {
+    normal.removeClass('active');
+    hard.removeClass('active');
+  } else if (levelID === 'levelNormal') {
+    easy.removeClass('active');
+    hard.removeClass('active');
+  } else if (levelID === 'levelHard') {
+    easy.removeClass('active');
+    normal.removeClass('active');
   }
 }

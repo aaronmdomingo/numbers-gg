@@ -11,20 +11,25 @@
 </head>
 <body>
     <div class="main">
-        <!-- <div class="title">
-            <div class="title__Container">
-                <div class="title__Box">Numbers GG</div>
-            </div>
-            <div class="title__Difficulty">
-                <div class="title__Difficulty-container">
-                    <div class="title__Difficulty-select">Select Difficulty</div>
-                    <div class="title__Difficulty-easy" id="easyDifficulty">Easy</div>
-                    <div class="title__Difficulty-normal" id="normalDifficulty">Easy</div>
-                    <div class="title__Difficulty-hard" id="hardDifficulty">Easy</div>
-                </div>
-            </div>
-        </div> -->
         <div class="main__Container">
+            <section class="row title">
+                <div class="title__Container">
+                    <div class="title__Logo">Numbers<span class="title__GG">GG</span> </div>
+                </div>
+                <div class="title__Difficulty">
+                    <div class="Difficulty-container">
+                        <div class="Difficulty-easy">
+                            <button class="btn level" id="levelEasy">Easy</button>
+                        </div>
+                        <div class="Difficulty-normal">
+                            <button class="btn level" id="levelNormal">Normal</button>
+                        </div>
+                        <div class="Difficulty-hard">
+                            <button class="btn level" id="levelHard">Hard</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="row timer">
                 <div class="timer__box">
                     <span id="timerCount">TIMER</span>
@@ -32,7 +37,7 @@
             </section>
             <section class="row checker">
                 <div class="checker__Reset">
-                    <button class="btn checker__reset" id="resetBtn">Reset</but>
+                    <button class="btn checker__reset" id="resetBtn">Reset</button>
                 </div>
                 <div class="checker__Display">
                     <div class="checker__Display-box" >
