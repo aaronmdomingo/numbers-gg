@@ -1,0 +1,76 @@
+/* big tablets to 1200 pixels */
+@media only screen and (max-width: 1200px) {
+    html {
+      font-size: 56.25%;
+    }
+  
+  
+  }
+  
+  /* Small tablets to big tablets from 768 - 1023 pixels */
+  @media only screen and (max-width: 1023px) {
+    html {
+      font-size: 50%;
+    }
+  
+  }
+  
+  /* Phone smallers than an iPad 481 - 767 pixels */
+  @media only screen and (max-width: 767px) {
+    html {
+      font-size: 43.75%;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 650px) {
+    html {
+      font-size: 37.5%;
+    }
+    .main__Container {
+        height: 90%;
+        width: 100%;
+    }
+    .btn {
+        width: 8rem;
+    }
+  
+  }
+  
+  /* Small Phones from 0-480 pixels */
+  @media only screen and (max-width: 480px) {
+    html {
+      font-size: 31%
+    }
+    .btn.level {
+        width: 6.5rem;
+    }
+    .btn {
+        width: 7rem;
+    }
+    .checker__Display-box {
+        height: 6rem;
+        width: 4rem;
+    }
+    .guess__Display-box {
+        height: 50%;
+    }
+  }
+  
+  @media only screen 
+  and (max-width: 812px) 
+  and (max-height: 375px)
+  and (orientation: landscape) {
+    html {
+      font-size: 25%
+    }
+    .main__Container {
+        height: 100%;
+        width: 100%;
+    }
+    .checker__Display-box {
+        height: 4rem;
+        width: 4rem;
+    }
+  }
+  
