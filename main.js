@@ -31,7 +31,7 @@ var normal = $('#levelNormal');
 var hard = $('#levelHard');
 
 $('.btn').click(function() {
-  playSoundWav('btnSound');
+  playSound('btnSound');
 })
 
 function init() {
@@ -127,7 +127,7 @@ function make_guess() {
       $(`#randomNumber${j + 1}`).text(guessArray[j]);
       $(`#randomNumber${j + 1}`).removeClass('indicatorPulse');
       if (!($(`#guessBox-${j + 1}`).hasClass('indicatorBorder'))) {
-        playSoundWav('correct');
+        playSound('correct');
         $(`#guessBox-${j + 1}`).addClass('indicatorBorder');
       }
     } else if (guessArray[j] > randomArray[j]) {
@@ -159,7 +159,7 @@ function make_guess() {
     countDownTime.text('NICE!')
     checkBtn.attr('disabled', 'true');
     main.addClass('indicatorBreathe');
-    playSoundMp3('victory');
+    playSound('victory');
     countDownTime.removeClass('indicatorColor');
     disableKeys();
   }
@@ -182,7 +182,7 @@ function timer(time) {
       countDownTime.text('TIMES UP!');
       $('.guess__Display-box').attr('disabled', 'true');
       checkBtn.attr('disabled', 'true');
-      playSoundMp3('wrong');
+      playSound('wrong');
 
       statusResult.removeClass('indicatorScroll');
       setTimeout(function () {
@@ -198,15 +198,18 @@ function timer(time) {
   }, 1000)
 }
 
-function playSoundWav(name) {
-  var audio = new Audio(`sounds/${name}.wav`);
-  audio.play();
+function loadSound() {
+  var mp3Array = ['btnSound', 'correct', 'victory', 'wrong'];
+
+  for (var i = 0 ; i < mp3Array.length ; i++) {
+    createjs.Sound.registerSound(`sounds/${mp3Array[i]}.mp3`, mp3Array[i]);
+  }
 }
 
-function playSoundMp3(name) {
-  var audio = new Audio(`sounds/${name}.mp3`);
-  audio.play();
+function playSound(name) {
+  createjs.Sound.play(name);
 }
+
 
 function disableKeys() {
   document.onkeydown = function (e) {
@@ -219,7 +222,7 @@ function enableKeys() {
     var keycode = e.keyCode;
     if (keycode == 13) {
       make_guess();
-      playSoundWav('btnSound');
+      playSound('btnSound');
     }
   }
 }
