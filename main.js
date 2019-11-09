@@ -1,4 +1,4 @@
-$(document).ready(init); // This line is defining a function that will run once the HTML document loads.
+$(document).ready(init);
 $('#startBtn').click(initializeApp);
 
 var main = $('.main');
