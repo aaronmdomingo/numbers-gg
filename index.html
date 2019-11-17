@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script></head>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script> <!-- note that jQuery must be imported to use jQuery in your project.-->
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <title>Numbers GG</title>
 </head>
-<body>
+<body onload="loadSound();">
     <div class="main">
         <div class="main__Container">
             <section class="row title">
@@ -92,14 +94,9 @@
             <section class="row footer">
                 <div class="footer__text">&copy; Aaron Domingo 2019</div>
             </section>
-
-
         </div>
-
-
     </div>
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     <script src="main.js"></script>
-    <!--this is linking your js file to you HTML, note it is loaded after jQuery so that jQuery is available to your js file-->
 </body>
 </html>

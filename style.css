@@ -29,7 +29,7 @@ body {
 
 .main__Container {
   height: 95%;
-  width: 70rem;
+  max-width: 70rem;
   margin: auto;
   background-color: #35b0ab;
   border-radius: 5px;
