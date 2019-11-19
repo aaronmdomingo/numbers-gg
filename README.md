@@ -8,6 +8,7 @@ A simple 8 bit themed number guessing game
 2. CSS3
 3. JavaScript
 4. jQuery
+5. CreateJS
 
 ## Live
 
