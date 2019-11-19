@@ -22,3 +22,21 @@ Try the application live at https://numbersgg.aarondomingo.com
 ## Preview
 
 ![](/demo/numbersgg.gif)
+
+
+## Development
+
+#### Getting Started
+
+1. Clone the repository.
+
+    ```shell
+    git clone https://github.com/aaronmdomingo/numbers-gg.git
+    cd numbers-gg
+    ```
+    
+2. Open the application in your browser
+
+    ```shell
+    open index.html
+    ```
